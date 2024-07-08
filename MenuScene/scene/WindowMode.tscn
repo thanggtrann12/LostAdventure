@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://3v5t3kr772ht"]
+
+[ext_resource type="PackedScene" uid="uid://tjpr548imjdp" path="res://MenuScene/scene/BaseDisplayItemList.tscn" id="1_mvfid"]
+[ext_resource type="Script" path="res://MenuScene/scripts/WindowMode.gd" id="2_1jd21"]
+
+[node name="WindowMode" instance=ExtResource("1_mvfid")]
+script = ExtResource("2_1jd21")
+
+[node name="ButtonName" parent="." index="0"]
+text = "Window Mode"

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c77r3h8q0k1rc"]
+
+[ext_resource type="PackedScene" uid="uid://hr6lct5mnrqy" path="res://MenuScene/scene/BaseDisplaySlider.tscn" id="1_a4pe2"]
+
+[node name="MusicVolume" instance=ExtResource("1_a4pe2")]
+
+[node name="SliderName" parent="." index="1"]
+text = "Music Volume"

@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://hr6lct5mnrqy"]
+
+[ext_resource type="Script" path="res://MenuScene/scripts/BaseDisplaySlider.gd" id="1_1w56k"]
+[ext_resource type="FontFile" uid="uid://n5affsmkhue2" path="res://assets/fonts/Gothic Pixels.ttf" id="1_m25ad"]
+[ext_resource type="Texture2D" uid="uid://diby4mfjxfflu" path="res://assets/slider/Slider_components2.png" id="2_tf46p"]
+
+[node name="BaseDisplaySlider" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1w56k")
+
+[node name="HSlider" type="HSlider" parent="."]
+process_mode = 3
+custom_minimum_size = Vector2(256, 32)
+layout_mode = 0
+offset_left = 386.0
+offset_top = 9.0
+offset_right = 642.0
+offset_bottom = 41.0
+theme_override_icons/grabber = ExtResource("2_tf46p")
+theme_override_icons/grabber_highlight = ExtResource("2_tf46p")
+max_value = 1.0
+step = 0.05
+
+[node name="SliderName" type="Label" parent="."]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 11.0
+offset_right = 234.0
+offset_bottom = 49.0
+theme_override_fonts/font = ExtResource("1_m25ad")
+theme_override_font_sizes/font_size = 22
+text = "BASE_LABEL"
+
+[connection signal="value_changed" from="HSlider" to="." method="_on_value_changed"]

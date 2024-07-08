@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgj3aud7q8tld"]
+
+[ext_resource type="PackedScene" uid="uid://tjpr548imjdp" path="res://MenuScene/scene/BaseDisplayItemList.tscn" id="1_25xm1"]
+[ext_resource type="Script" path="res://MenuScene/scripts/MusicList.gd" id="2_ikv7v"]
+
+[node name="MusicList" instance=ExtResource("1_25xm1")]
+script = ExtResource("2_ikv7v")
+
+[node name="ButtonName" parent="." index="0"]
+text = "Music List"

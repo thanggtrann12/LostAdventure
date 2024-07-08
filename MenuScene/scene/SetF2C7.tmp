@@ -1,0 +1,291 @@
+[gd_scene load_steps=17 format=3 uid="uid://lfv6eahi7yv"]
+
+[ext_resource type="Script" path="res://MenuScene/scripts/SettingsTab.gd" id="1_0g372"]
+[ext_resource type="FontFile" uid="uid://n5affsmkhue2" path="res://assets/fonts/Gothic Pixels.ttf" id="1_ve2ga"]
+[ext_resource type="PackedScene" uid="uid://bir31r8byxxq8" path="res://MenuScene/scene/WindowSizeSettings.tscn" id="3_vjfhk"]
+[ext_resource type="PackedScene" uid="uid://3v5t3kr772ht" path="res://MenuScene/scene/WindowMode.tscn" id="3_vtp4k"]
+[ext_resource type="PackedScene" uid="uid://db2wwns0awcqo" path="res://MenuScene/scene/Vync.tscn" id="4_p68h5"]
+[ext_resource type="PackedScene" uid="uid://b33hadpd87ek3" path="res://MenuScene/scene/Quanlity.tscn" id="5_k1enr"]
+[ext_resource type="PackedScene" uid="uid://h7auabk0o1w0" path="res://MenuScene/scene/MasterVolume.tscn" id="6_5000u"]
+[ext_resource type="PackedScene" uid="uid://kjvnaxnui6jo" path="res://MenuScene/scene/SfxVolumn.tscn" id="7_3gjcd"]
+[ext_resource type="PackedScene" uid="uid://i7rvhla80gbi" path="res://MenuScene/scene/MusicVolume.tscn" id="8_08f5q"]
+[ext_resource type="PackedScene" uid="uid://cct3nbhmvttkd" path="res://MenuScene/scene/SelectMusic.tscn" id="9_2hhl1"]
+[ext_resource type="PackedScene" uid="uid://drj423xbmnbu3" path="res://MenuScene/scene/BaseDisplayInput.tscn" id="9_xj7k2"]
+
+[sub_resource type="Theme" id="Theme_1ovsq"]
+TabBar/colors/font_hovered_color = Color(0.556003, 0.675221, 0.936778, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_faev5"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_le6km"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jf2ig"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h3cek"]
+
+[node name="SettingsTab" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0g372")
+
+[node name="TabContainer" type="TabContainer" parent="."]
+modulate = Color(1, 1, 1, 0.701961)
+self_modulate = Color(0.188235, 0.145098, 0.137255, 0.968627)
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -174.0
+offset_right = 401.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_1ovsq")
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("1_ve2ga")
+theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_faev5")
+theme_override_styles/tab_selected = SubResource("StyleBoxEmpty_le6km")
+theme_override_styles/tab_unselected = SubResource("StyleBoxEmpty_jf2ig")
+tab_alignment = 1
+current_tab = 0
+
+[node name="Video" type="TabBar" parent="TabContainer"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+metadata/_tab_index = 0
+
+[node name="VideoSettingContainer" type="MarginContainer" parent="TabContainer/Video"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoContainer" type="VBoxContainer" parent="TabContainer/Video/VideoSettingContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 48
+alignment = 1
+
+[node name="WindowMode" parent="TabContainer/Video/VideoSettingContainer/VideoContainer" instance=ExtResource("3_vtp4k")]
+layout_mode = 2
+
+[node name="WindowSize" parent="TabContainer/Video/VideoSettingContainer/VideoContainer" instance=ExtResource("3_vjfhk")]
+layout_mode = 2
+script = null
+
+[node name="Vync" parent="TabContainer/Video/VideoSettingContainer/VideoContainer" instance=ExtResource("4_p68h5")]
+layout_mode = 2
+script = null
+
+[node name="Quanlity" parent="TabContainer/Video/VideoSettingContainer/VideoContainer" instance=ExtResource("5_k1enr")]
+layout_mode = 2
+script = null
+
+[node name="Sound" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+mouse_default_cursor_shape = 2
+metadata/_tab_index = 1
+
+[node name="SoundSettingContainer" type="MarginContainer" parent="TabContainer/Sound"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SoundContainer" type="VBoxContainer" parent="TabContainer/Sound/SoundSettingContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 48
+alignment = 1
+
+[node name="MasterVolume" parent="TabContainer/Sound/SoundSettingContainer/SoundContainer" instance=ExtResource("6_5000u")]
+layout_mode = 2
+
+[node name="SFXVolume" parent="TabContainer/Sound/SoundSettingContainer/SoundContainer" instance=ExtResource("7_3gjcd")]
+layout_mode = 2
+
+[node name="MusicVolume" parent="TabContainer/Sound/SoundSettingContainer/SoundContainer" instance=ExtResource("8_08f5q")]
+layout_mode = 2
+
+[node name="SelectMusic" parent="TabContainer/Sound/SoundSettingContainer/SoundContainer" instance=ExtResource("9_2hhl1")]
+layout_mode = 2
+
+[node name="Input" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+mouse_default_cursor_shape = 2
+metadata/_tab_index = 2
+
+[node name="InputSettingContainer" type="MarginContainer" parent="TabContainer/Input"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Input/InputSettingContainer"]
+layout_mode = 2
+theme_override_constants/separation = 384
+
+[node name="SkillContainer" type="VBoxContainer" parent="TabContainer/Input/InputSettingContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 44
+alignment = 1
+
+[node name="BaseDisplayInput" parent="TabContainer/Input/InputSettingContainer/HBoxContainer/SkillContainer" instance=ExtResource("9_xj7k2")]
+layout_mode = 2
+
+[node name="InputName" parent="TabContainer/Input/InputSettingContainer/HBoxContainer/SkillContainer/BaseDisplayInput/HBoxContainer" index="1"]
+text = "Skill 1"
+
+[node name="BaseDisplayInput2" parent="TabContainer/Input/InputSettingContainer/HBoxContainer/SkillContainer" instance=ExtResource("9_xj7k2")]
+layout_mode = 2
+
+[node name="InputName" parent="TabContainer/Input/InputSettingContainer/HBoxContainer/SkillContainer/BaseDisplayInput2/HBoxContainer" index="1"]
+text = "Skill 2"
+
+[node name="BaseDisplayInput3" parent="TabContainer/Input/InputSettingContainer/HBoxContainer/SkillContainer" instance=ExtResource("9_xj7k2")]
+layout_mode = 2
+
+[node name="InputName" parent="TabContainer/Input/InputSettingContainer/HBoxContainer/SkillContainer/BaseDisplayInput3/HBoxContainer" index="1"]
+text = "Skill 3"
+
+[node name="BaseDisplayInput4" parent="TabContainer/Input/InputSettingContainer/HBoxContainer/SkillContainer" instance=ExtResource("9_xj7k2")]
+layout_mode = 2
+
+[node name="InputName" parent="TabContainer/Input/InputSettingContainer/HBoxContainer/SkillContainer/BaseDisplayInput4/HBoxContainer" index="1"]
+text = "Skill 4"
+
+[node name="BaseDisplayInput5" parent="TabContainer/Input/InputSettingContainer/HBoxContainer/SkillContainer" instance=ExtResource("9_xj7k2")]
+layout_mode = 2
+
+[node name="InputName" parent="TabContainer/Input/InputSettingContainer/HBoxContainer/SkillContainer/BaseDisplayInput5/HBoxContainer" index="1"]
+text = "Dash"
+
+[node name="IInteractContainer" type="VBoxContainer" parent="TabContainer/Input/InputSettingContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 44
+alignment = 1
+
+[node name="BaseDisplayInput" parent="TabContainer/Input/InputSettingContainer/HBoxContainer/IInteractContainer" instance=ExtResource("9_xj7k2")]
+layout_mode = 2
+
+[node name="InputName" parent="TabContainer/Input/InputSettingContainer/HBoxContainer/IInteractContainer/BaseDisplayInput/HBoxContainer" index="1"]
+text = "Toggle Inventory"
+
+[node name="BaseDisplayInput2" parent="TabContainer/Input/InputSettingContainer/HBoxContainer/IInteractContainer" instance=ExtResource("9_xj7k2")]
+layout_mode = 2
+
+[node name="InputName" parent="TabContainer/Input/InputSettingContainer/HBoxContainer/IInteractContainer/BaseDisplayInput2/HBoxContainer" index="1"]
+text = "Toggle Map"
+
+[node name="BaseDisplayInput3" parent="TabContainer/Input/InputSettingContainer/HBoxContainer/IInteractContainer" instance=ExtResource("9_xj7k2")]
+layout_mode = 2
+
+[node name="InputName" parent="TabContainer/Input/InputSettingContainer/HBoxContainer/IInteractContainer/BaseDisplayInput3/HBoxContainer" index="1"]
+text = "Quick Escape"
+
+[node name="BaseDisplayInput4" parent="TabContainer/Input/InputSettingContainer/HBoxContainer/IInteractContainer" instance=ExtResource("9_xj7k2")]
+layout_mode = 2
+
+[node name="InputName" parent="TabContainer/Input/InputSettingContainer/HBoxContainer/IInteractContainer/BaseDisplayInput4/HBoxContainer" index="1"]
+text = "Settings"
+
+[node name="BaseDisplayInput5" parent="TabContainer/Input/InputSettingContainer/HBoxContainer/IInteractContainer" instance=ExtResource("9_xj7k2")]
+layout_mode = 2
+
+[node name="InputName" parent="TabContainer/Input/InputSettingContainer/HBoxContainer/IInteractContainer/BaseDisplayInput5/HBoxContainer" index="1"]
+text = "Interact"
+
+[node name="Accessibility" type="TabBar" parent="TabContainer"]
+visible = false
+layout_mode = 2
+mouse_default_cursor_shape = 2
+metadata/_tab_index = 3
+
+[node name="AccSettingContainer" type="MarginContainer" parent="TabContainer/Accessibility"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 231.0
+offset_top = 280.0
+offset_right = 560.0
+offset_bottom = 320.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/separation = 40
+
+[node name="Save" type="Button" parent="Button"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("1_ve2ga")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h3cek")
+text = "Save"
+flat = true
+
+[node name="Default" type="Button" parent="Button"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("1_ve2ga")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h3cek")
+text = "Restore Default
+"
+flat = true
+
+[node name="Back" type="Button" parent="Button"]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("1_ve2ga")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_h3cek")
+text = "Back"
+flat = true
+
+[connection signal="pressed" from="Button/Save" to="." method="_on_save_pressed"]
+[connection signal="pressed" from="Button/Back" to="." method="_on_back_pressed"]
+
+[editable path="TabContainer/Input/InputSettingContainer/HBoxContainer/SkillContainer/BaseDisplayInput"]
+[editable path="TabContainer/Input/InputSettingContainer/HBoxContainer/SkillContainer/BaseDisplayInput2"]
+[editable path="TabContainer/Input/InputSettingContainer/HBoxContainer/SkillContainer/BaseDisplayInput3"]
+[editable path="TabContainer/Input/InputSettingContainer/HBoxContainer/SkillContainer/BaseDisplayInput4"]
+[editable path="TabContainer/Input/InputSettingContainer/HBoxContainer/SkillContainer/BaseDisplayInput5"]
+[editable path="TabContainer/Input/InputSettingContainer/HBoxContainer/IInteractContainer/BaseDisplayInput"]
+[editable path="TabContainer/Input/InputSettingContainer/HBoxContainer/IInteractContainer/BaseDisplayInput2"]
+[editable path="TabContainer/Input/InputSettingContainer/HBoxContainer/IInteractContainer/BaseDisplayInput3"]
+[editable path="TabContainer/Input/InputSettingContainer/HBoxContainer/IInteractContainer/BaseDisplayInput4"]
+[editable path="TabContainer/Input/InputSettingContainer/HBoxContainer/IInteractContainer/BaseDisplayInput5"]

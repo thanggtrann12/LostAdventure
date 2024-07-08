@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://27f0djp6c77c"]
+
+[ext_resource type="PackedScene" uid="uid://tjpr548imjdp" path="res://MenuScene/scene/BaseDisplayItemList.tscn" id="1_eaqe2"]
+[ext_resource type="Script" path="res://MenuScene/scripts/TextureMode.gd" id="2_bqror"]
+
+[node name="TextureMode" instance=ExtResource("1_eaqe2")]
+script = ExtResource("2_bqror")
+
+[node name="ButtonName" parent="." index="0"]
+text = "Texture Mode"

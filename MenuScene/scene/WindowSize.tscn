@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb0pfm0fx1bo6"]
+
+[ext_resource type="PackedScene" uid="uid://tjpr548imjdp" path="res://MenuScene/scene/BaseDisplayItemList.tscn" id="1_i574n"]
+[ext_resource type="Script" path="res://MenuScene/scripts/WindowSize.gd" id="2_1aitq"]
+
+[node name="WindowSize" instance=ExtResource("1_i574n")]
+script = ExtResource("2_1aitq")
+
+[node name="ButtonName" parent="." index="0"]
+text = "Window Size"

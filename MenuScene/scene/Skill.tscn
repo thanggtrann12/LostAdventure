@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://xhcb6fhm7bir"]
+
+[ext_resource type="PackedScene" uid="uid://drj423xbmnbu3" path="res://MenuScene/scene/BaseDisplayInput.tscn" id="1_qe2jq"]
+
+[node name="Skill" instance=ExtResource("1_qe2jq")]
+
+[node name="InputName" parent="." index="0"]
+layout_mode = 0
+text = "Skill  1"

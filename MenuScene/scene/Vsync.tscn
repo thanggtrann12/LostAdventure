@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dt5ljf65vw0sj"]
+
+[ext_resource type="PackedScene" uid="uid://tjpr548imjdp" path="res://MenuScene/scene/BaseDisplayItemList.tscn" id="1_8r7rt"]
+[ext_resource type="Script" path="res://MenuScene/scripts/Vsync.gd" id="2_2h8hd"]
+
+[node name="Vsync" instance=ExtResource("1_8r7rt")]
+script = ExtResource("2_2h8hd")
+
+[node name="ButtonName" parent="." index="0"]
+text = "Vsync"
