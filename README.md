@@ -1,1 +1,1 @@
-![Game Logo]( assets/background/background.png)
+![Game Logo](assets/background/Background.png)
