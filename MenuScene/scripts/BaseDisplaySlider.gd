@@ -8,7 +8,8 @@ func _on_value_changed(value: float) -> void:
 
 func _ready() -> void:
 	var volume = SettingsManager.load_audio_settings()
-	if volume:
+	print(volume)
+	if volume[0]:
 		match name:
 			"MasterVolume":
 				volume_slider.value = volume[0]

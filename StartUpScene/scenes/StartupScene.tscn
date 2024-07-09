@@ -20,34 +20,8 @@ noise = SubResource("FastNoiseLite_hr823")
 [node name="StartupScene" type="Node2D"]
 script = ExtResource("1_wi7dm")
 
-[node name="BackgoundCam" type="CharacterBody2D" parent="."]
-visible = false
-position = Vector2(575, 325)
-script = ExtResource("4_yo7hd")
-
-[node name="Cam" type="Camera2D" parent="BackgoundCam"]
-
 [node name="Background" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Background"]
-motion_scale = Vector2(0, 0)
-
-[node name="BackgroundImage" type="TextureRect" parent="Background/ParallaxLayer"]
-texture_filter = 1
-offset_right = 1153.0
-offset_bottom = 649.0
-texture = ExtResource("5_554a1")
-expand_mode = 1
-
-[node name="Tiltle" type="Label" parent="Background/ParallaxLayer"]
-offset_left = 552.0
-offset_top = 77.0
-offset_right = 1087.0
-offset_bottom = 167.0
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("3_287w0")
-theme_override_font_sizes/font_size = 72
-text = "Lost Adventure"
+layer = 0
 
 [node name="Fog" type="ParallaxLayer" parent="Background"]
 motion_mirroring = Vector2(1151, 0)
@@ -98,7 +72,7 @@ theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("3_287w0")
 theme_override_font_sizes/font_size = 32
 theme_override_styles/focus = SubResource("StyleBoxEmpty_tlcio")
-text = "Start"
+text = "New Game"
 flat = true
 
 [node name="ButtonHover2" type="TextureRect" parent="Background/UI/ButtonContainer/Start"]
@@ -165,6 +139,31 @@ texture = ExtResource("5_dkwdf")
 [node name="SettingsTab" parent="Background/UI" node_paths=PackedStringArray("parrent_node") instance=ExtResource("5_ock33")]
 visible = false
 parrent_node = NodePath("../../..")
+
+[node name="BackgoundCam" type="CharacterBody2D" parent="."]
+position = Vector2(575, 325)
+script = ExtResource("4_yo7hd")
+
+[node name="Tile" type="Label" parent="BackgoundCam"]
+offset_left = -95.0
+offset_top = -245.0
+offset_right = 524.0
+offset_bottom = -139.0
+theme_override_fonts/font = ExtResource("3_287w0")
+theme_override_font_sizes/font_size = 84
+text = "Lost Adventure"
+
+[node name="BackgroundImage" type="TextureRect" parent="BackgoundCam"]
+show_behind_parent = true
+texture_filter = 1
+offset_left = -575.0
+offset_top = -325.0
+offset_right = 578.0
+offset_bottom = 324.0
+texture = ExtResource("5_554a1")
+expand_mode = 1
+
+[node name="Cam" type="Camera2D" parent="BackgoundCam"]
 
 [node name="BackgroundAudio" type="AudioStreamPlayer" parent="."]
 process_mode = 3

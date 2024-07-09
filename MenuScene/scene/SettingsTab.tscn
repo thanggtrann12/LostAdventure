@@ -58,10 +58,9 @@ theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_faev5")
 theme_override_styles/tab_selected = SubResource("StyleBoxEmpty_le6km")
 theme_override_styles/tab_unselected = SubResource("StyleBoxEmpty_jf2ig")
 tab_alignment = 1
-current_tab = 2
+current_tab = 0
 
 [node name="Video" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 mouse_default_cursor_shape = 2
 metadata/_tab_index = 0
@@ -127,6 +126,7 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Input" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 mouse_default_cursor_shape = 2
 metadata/_tab_index = 2
@@ -165,9 +165,9 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 131.0
+offset_left = 99.0
 offset_top = 280.0
-offset_right = 536.0
+offset_right = 504.0
 offset_bottom = 320.0
 grow_horizontal = 0
 grow_vertical = 0

@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://du44l1fibg841"]
+
+[ext_resource type="Texture2D" uid="uid://tbrdb5qpb0j4" path="res://assets/background/Background.png" id="1_e11jr"]
+[ext_resource type="Script" path="res://StartUpScene/scipts/LoadingScene.gd" id="1_h8wi7"]
+[ext_resource type="Texture2D" uid="uid://m5y1dfs1kx1f" path="res://assets/background/Loading_Bar x2.png" id="2_insgh"]
+[ext_resource type="Texture2D" uid="uid://d3gc4e5lcghov" path="res://assets/background/filler x2.png" id="3_62388"]
+[ext_resource type="FontFile" uid="uid://n5affsmkhue2" path="res://assets/fonts/Gothic Pixels.ttf" id="5_molmr"]
+
+[node name="LoadingScene" type="Node2D"]
+script = ExtResource("1_h8wi7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_e11jr")
+expand_mode = 1
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -296.0
+offset_top = -54.0
+offset_right = 2.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(2, 2)
+texture_under = ExtResource("2_insgh")
+texture_progress = ExtResource("3_62388")
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_left = 560.0
+offset_top = 584.0
+offset_right = 600.0
+offset_bottom = 607.0
+theme_override_fonts/font = ExtResource("5_molmr")
+theme_override_font_sizes/font_size = 28
+text = "
+"
+horizontal_alignment = 1
+vertical_alignment = 1

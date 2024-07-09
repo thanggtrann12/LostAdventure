@@ -3,7 +3,6 @@ extends Node2D
 @onready var button_container: VBoxContainer = $Background/UI/ButtonContainer
 @onready var settings_tab: Control = $Background/UI/SettingsTab
 @onready var background_audio: AudioStreamPlayer = $BackgroundAudio
-
 func _ready() -> void:
 	for button in button_container.get_children():
 		button.pressed.connect(_on_button_pressed.bind(button))
@@ -14,10 +13,12 @@ func _ready() -> void:
 func _on_button_pressed(button: Button) -> void:
 	match button.name:
 		"Cont":
-			# Handle "Continue" button pressed
+			get_tree().change_scene_to_file("res://Character/scenes/CharacterSeletion.tscn")
 			pass
 		"Start":
-			# Handle "Start" button pressed
+			Transitions.transition()
+			await Transitions.on_transition_finished
+			print("oke")
 			pass
 		"Settings":
 			settings_tab.visible = true
