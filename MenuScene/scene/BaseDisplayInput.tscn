@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://drj423xbmnbu3"]
+[gd_scene load_steps=5 format=3 uid="uid://drj423xbmnbu3"]
 
 [ext_resource type="FontFile" uid="uid://ym8sq64g20pp" path="res://assets/fonts/gothic-pixel-font.ttf" id="1_frdur"]
 [ext_resource type="Script" path="res://MenuScene/scripts/BaseDisplayInput.gd" id="1_klaaw"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_berhb"]
+
+[sub_resource type="Shortcut" id="Shortcut_d7sgs"]
+events = [SubResource("InputEventKey_berhb")]
 
 [node name="BaseDisplayInput" type="Control"]
 custom_minimum_size = Vector2(413, 40)
@@ -30,7 +35,9 @@ theme_override_fonts/font = ExtResource("1_frdur")
 theme_override_font_sizes/font_size = 22
 text = "BASE_LABEL"
 
-[node name="Items" type="LineEdit" parent="HBoxContainer"]
+[node name="Items" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(128, 32)
 layout_mode = 2
-alignment = 1
+shortcut = SubResource("Shortcut_d7sgs")
+
+[connection signal="pressed" from="HBoxContainer/Items" to="." method="_on_pressed"]

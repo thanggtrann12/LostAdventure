@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://lfv6eahi7yv"]
+[gd_scene load_steps=18 format=3 uid="uid://lfv6eahi7yv"]
 
 [ext_resource type="Script" path="res://MenuScene/scripts/SettingsTab.gd" id="1_0g372"]
 [ext_resource type="FontFile" uid="uid://n5affsmkhue2" path="res://assets/fonts/Gothic Pixels.ttf" id="1_ve2ga"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://27f0djp6c77c" path="res://MenuScene/scene/TextureMode.tscn" id="6_ppywb"]
 [ext_resource type="PackedScene" uid="uid://c77r3h8q0k1rc" path="res://MenuScene/scene/MusicVolume.tscn" id="8_08f5q"]
 [ext_resource type="PackedScene" uid="uid://2ih2ehp5xp2j" path="res://MenuScene/scene/SFXVolume.tscn" id="9_avtup"]
+[ext_resource type="PackedScene" uid="uid://drj423xbmnbu3" path="res://MenuScene/scene/BaseDisplayInput.tscn" id="9_xj7k2"]
 [ext_resource type="PackedScene" uid="uid://cgj3aud7q8tld" path="res://MenuScene/scene/MusicList.tscn" id="10_f3glc"]
 [ext_resource type="Script" path="res://MenuScene/scripts/InputContainer.gd" id="11_2018w"]
 
@@ -144,6 +145,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 columns = 2
 script = ExtResource("11_2018w")
+input_package = ExtResource("9_xj7k2")
 
 [node name="Accessibility" type="TabBar" parent="TabContainer"]
 visible = false

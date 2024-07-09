@@ -2,6 +2,7 @@ extends Control
 
 @onready var video_container: VBoxContainer = $TabContainer/Video/VideoSettingContainer/VideoContainer
 @onready var sound_container: VBoxContainer = $TabContainer/Sound/SoundSettingContainer/SoundContainer
+@onready var input_container: GridContainer = $TabContainer/Input/InputSettingContainer/InputContainer
 
 @onready var settings_list = video_container.get_children() + sound_container.get_children()
 
@@ -27,6 +28,8 @@ func _on_back_pressed() -> void:
 func _ready() -> void:
 	for setting in settings_list:
 		setting.connect("Change", Callable(self, "_on_change").bind(setting))
+	for input in input_container.get_children():
+		input.Change.connect(_on_input_change)
 	save.disabled = true
 	if parrent_node:
 		var audio = parrent_node.find_child("BackgroundAudio")
@@ -36,6 +39,9 @@ func _ready() -> void:
 		else:
 			audio.stream = load("res://Audio/Source/AdventureBegin.ogg")
 		audio.play()
+
+func _on_input_change():
+	is_value_changed = true
 
 func _on_change(change, control: Control):
 	is_value_changed = true

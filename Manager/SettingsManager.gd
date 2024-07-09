@@ -10,8 +10,14 @@ const DEFAULT_WINDOW_VSYNC_MODE = DisplayServer.VSYNC_DISABLED
 
 var FileHandler = ConfigFile.new()
 
+const INPUT_ACTION_LIST: Dictionary = {
+	"Skill 1":"Q", "Skill 2":"W", "Skill 3":"E", "Skill 4":"R",	"Dash":"Shift",
+	 "Toggle Inventory":"Tab", "Toggle Map":"M", "Toggle Skill":"K"}
+
+
 func _ready() -> void:
 	load_window_settings()
+	get_input_actions_settings()
 
 func save_back_ground_music(music_name):
 	FileHandler.set_value("Audio", "background_music", music_name)
@@ -24,6 +30,7 @@ func load_back_ground_music():
 func save_setings():
 	get_window_settings()
 	get_audio_settings()
+	get_input_actions_settings()
 	var error = FileHandler.save(SETTING_FILE_PATH)
 	if error != OK:
 		print("Error saving settings")
@@ -63,3 +70,16 @@ func load_audio_settings():
 		var music_vol = FileHandler.get_value("Audio", "music")
 		var sfx_vol = FileHandler.get_value("Audio", "sfx")
 		return [master_vol, sfx_vol, music_vol]
+
+func get_input_actions_settings():
+	for action in INPUT_ACTION_LIST.keys():
+		if InputMap.has_action(action):
+			var events = InputMap.action_get_events(action)
+			FileHandler.set_value("Inputs", action,  events)
+
+func load_input_actions_settings():
+	var events = []
+	for action in INPUT_ACTION_LIST.keys():
+		var event = FileHandler.get_value("Inputs", action)
+		events.append(event)
+	return events

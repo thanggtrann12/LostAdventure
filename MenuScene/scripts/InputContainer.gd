@@ -1,20 +1,16 @@
 extends GridContainer
 
-const BASE_DISPLAY_INPUT = preload("res://MenuScene/scene/BaseDisplayInput.tscn")
-
-var input_list: Array = [
-	"Skill 1", "Skill 2", "Skill 3", "Skill 4",
-	"Dash", "Toggle Inventory", "Toggle Map", "Toggle Skill"]
+@export var input_package: PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	for inputIndex in range(input_list.size()):
-		var base_display_input_instance = BASE_DISPLAY_INPUT.instantiate()
-		#base_display_input_instance.set_input_label(input_list[inputIndex]) # Assuming there is a method to set the label
+
+	for inputIndex in range(SettingsManager.INPUT_ACTION_LIST.keys().size()):
+		var base_display_input_instance = input_package.instantiate()
 		add_child(base_display_input_instance)
-		get_child(inputIndex).set_input_label(input_list[inputIndex])
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+		var key = SettingsManager.load_input_actions_settings()[inputIndex][0].as_text()
+		if key:
+			var space_index = key.find(" ")
+			get_child(inputIndex).change_key_to(key.substr(0, space_index))
+		else:
+			get_child(inputIndex).change_key_to(SettingsManager.INPUT_ACTION_LIST.values()[inputIndex])
