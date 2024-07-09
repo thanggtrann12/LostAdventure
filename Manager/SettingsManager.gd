@@ -13,8 +13,8 @@ var FileHandler = ConfigFile.new()
 func _ready() -> void:
 	load_window_settings()
 
-func save_back_ground_music(name):
-	FileHandler.set_value("Audio", "background_music", name)
+func save_back_ground_music(music_name):
+	FileHandler.set_value("Audio", "background_music", music_name)
 	FileHandler.save(SETTING_FILE_PATH)
 
 func load_back_ground_music():
@@ -23,6 +23,7 @@ func load_back_ground_music():
 
 func save_setings():
 	get_window_settings()
+	get_audio_settings()
 	var error = FileHandler.save(SETTING_FILE_PATH)
 	if error != OK:
 		print("Error saving settings")
@@ -47,3 +48,18 @@ func load_window_settings():
 		DisplayServer.window_set_size(FileHandler.get_value("VideoSettings", "screen_resolution"))
 		DisplayServer.window_set_vsync_mode(FileHandler.get_value("VideoSettings", "vsync"))
 		ProjectSettings.set_setting("rendering/textures/canvas_textures/default_texture_filter", FileHandler.get_value("VideoSettings", "texture_render"))
+		
+func get_audio_settings():
+	var master_vol = db_to_linear(AudioServer.get_bus_volume_db(0))
+	FileHandler.set_value("Audio", "master",  master_vol)
+	var music_vol = db_to_linear(AudioServer.get_bus_volume_db(1))
+	FileHandler.set_value("Audio", "music",  music_vol)
+	var sfx_vol = db_to_linear(AudioServer.get_bus_volume_db(2))
+	FileHandler.set_value("Audio", "sfx",  sfx_vol)
+
+func load_audio_settings():
+	if FileHandler.load(SETTING_FILE_PATH) == OK:
+		var master_vol = FileHandler.get_value("Audio", "master")
+		var music_vol = FileHandler.get_value("Audio", "music")
+		var sfx_vol = FileHandler.get_value("Audio", "sfx")
+		return [master_vol, sfx_vol, music_vol]

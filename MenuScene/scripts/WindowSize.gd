@@ -10,7 +10,6 @@ const RESOLUTION_DICTIONARY: Dictionary = {
 func _ready() -> void:
 	update_items(RESOLUTION_DICTIONARY)
 	var index = 0
-	var window_size = Vector2i(DisplayServer.window_get_size())
 	for res in RESOLUTION_DICTIONARY.values():
 		if DisplayServer.window_get_size().x == res.x:
 			items.selected = index

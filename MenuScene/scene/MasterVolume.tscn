@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bv4lidiysttgg"]
 
-[ext_resource type="PackedScene" uid="uid://hr6lct5mnrqy" path="res://MenuScene/scene/BaseDisplaySlider.tscn" id="1_w1ooo"]
+[ext_resource type="PackedScene" uid="uid://hr6lct5mnrqy" path="res://MenuScene/scene/BaseVolumeSlider.tscn" id="1_w1ooo"]
 
 [node name="MasterVolume" instance=ExtResource("1_w1ooo")]
 

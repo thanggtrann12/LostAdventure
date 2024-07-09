@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://27f0djp6c77c" path="res://MenuScene/scene/TextureMode.tscn" id="6_ppywb"]
 [ext_resource type="PackedScene" uid="uid://c77r3h8q0k1rc" path="res://MenuScene/scene/MusicVolume.tscn" id="8_08f5q"]
 [ext_resource type="PackedScene" uid="uid://2ih2ehp5xp2j" path="res://MenuScene/scene/SFXVolume.tscn" id="9_avtup"]
-[ext_resource type="PackedScene" uid="uid://drj423xbmnbu3" path="res://MenuScene/scene/BaseDisplayInput.tscn" id="9_xj7k2"]
 [ext_resource type="PackedScene" uid="uid://cgj3aud7q8tld" path="res://MenuScene/scene/MusicList.tscn" id="10_f3glc"]
+[ext_resource type="Script" path="res://MenuScene/scripts/InputContainer.gd" id="11_2018w"]
 
 [sub_resource type="Theme" id="Theme_1ovsq"]
 TabBar/colors/font_hovered_color = Color(0.556003, 0.675221, 0.936778, 1)
@@ -57,9 +57,10 @@ theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_faev5")
 theme_override_styles/tab_selected = SubResource("StyleBoxEmpty_le6km")
 theme_override_styles/tab_unselected = SubResource("StyleBoxEmpty_jf2ig")
 tab_alignment = 1
-current_tab = 0
+current_tab = 2
 
 [node name="Video" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 mouse_default_cursor_shape = 2
 metadata/_tab_index = 0
@@ -125,7 +126,6 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Input" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 mouse_default_cursor_shape = 2
 metadata/_tab_index = 2
@@ -138,83 +138,12 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="InputContainer" type="HBoxContainer" parent="TabContainer/Input/InputSettingContainer"]
+[node name="InputContainer" type="GridContainer" parent="TabContainer/Input/InputSettingContainer"]
 layout_mode = 2
-theme_override_constants/separation = 384
-
-[node name="SkillContainer" type="VBoxContainer" parent="TabContainer/Input/InputSettingContainer/InputContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 44
-alignment = 1
-
-[node name="BaseDisplayInput" parent="TabContainer/Input/InputSettingContainer/InputContainer/SkillContainer" instance=ExtResource("9_xj7k2")]
-layout_mode = 2
-
-[node name="InputName" parent="TabContainer/Input/InputSettingContainer/InputContainer/SkillContainer/BaseDisplayInput/HBoxContainer" index="1"]
-text = "Skill 1"
-
-[node name="BaseDisplayInput2" parent="TabContainer/Input/InputSettingContainer/InputContainer/SkillContainer" instance=ExtResource("9_xj7k2")]
-layout_mode = 2
-
-[node name="InputName" parent="TabContainer/Input/InputSettingContainer/InputContainer/SkillContainer/BaseDisplayInput2/HBoxContainer" index="1"]
-text = "Skill 2"
-
-[node name="BaseDisplayInput3" parent="TabContainer/Input/InputSettingContainer/InputContainer/SkillContainer" instance=ExtResource("9_xj7k2")]
-layout_mode = 2
-
-[node name="InputName" parent="TabContainer/Input/InputSettingContainer/InputContainer/SkillContainer/BaseDisplayInput3/HBoxContainer" index="1"]
-text = "Skill 3"
-
-[node name="BaseDisplayInput4" parent="TabContainer/Input/InputSettingContainer/InputContainer/SkillContainer" instance=ExtResource("9_xj7k2")]
-layout_mode = 2
-
-[node name="InputName" parent="TabContainer/Input/InputSettingContainer/InputContainer/SkillContainer/BaseDisplayInput4/HBoxContainer" index="1"]
-text = "Skill 4"
-
-[node name="BaseDisplayInput5" parent="TabContainer/Input/InputSettingContainer/InputContainer/SkillContainer" instance=ExtResource("9_xj7k2")]
-layout_mode = 2
-
-[node name="InputName" parent="TabContainer/Input/InputSettingContainer/InputContainer/SkillContainer/BaseDisplayInput5/HBoxContainer" index="1"]
-text = "Dash"
-
-[node name="InteractContainer" type="VBoxContainer" parent="TabContainer/Input/InputSettingContainer/InputContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-theme_override_constants/separation = 44
-alignment = 1
-
-[node name="BaseDisplayInput" parent="TabContainer/Input/InputSettingContainer/InputContainer/InteractContainer" instance=ExtResource("9_xj7k2")]
-layout_mode = 2
-
-[node name="InputName" parent="TabContainer/Input/InputSettingContainer/InputContainer/InteractContainer/BaseDisplayInput/HBoxContainer" index="1"]
-text = "Toggle Inventory"
-
-[node name="BaseDisplayInput2" parent="TabContainer/Input/InputSettingContainer/InputContainer/InteractContainer" instance=ExtResource("9_xj7k2")]
-layout_mode = 2
-
-[node name="InputName" parent="TabContainer/Input/InputSettingContainer/InputContainer/InteractContainer/BaseDisplayInput2/HBoxContainer" index="1"]
-text = "Toggle Map"
-
-[node name="BaseDisplayInput3" parent="TabContainer/Input/InputSettingContainer/InputContainer/InteractContainer" instance=ExtResource("9_xj7k2")]
-layout_mode = 2
-
-[node name="InputName" parent="TabContainer/Input/InputSettingContainer/InputContainer/InteractContainer/BaseDisplayInput3/HBoxContainer" index="1"]
-text = "Quick Escape"
-
-[node name="BaseDisplayInput4" parent="TabContainer/Input/InputSettingContainer/InputContainer/InteractContainer" instance=ExtResource("9_xj7k2")]
-layout_mode = 2
-
-[node name="InputName" parent="TabContainer/Input/InputSettingContainer/InputContainer/InteractContainer/BaseDisplayInput4/HBoxContainer" index="1"]
-text = "Settings"
-
-[node name="BaseDisplayInput5" parent="TabContainer/Input/InputSettingContainer/InputContainer/InteractContainer" instance=ExtResource("9_xj7k2")]
-layout_mode = 2
-
-[node name="InputName" parent="TabContainer/Input/InputSettingContainer/InputContainer/InteractContainer/BaseDisplayInput5/HBoxContainer" index="1"]
-text = "Interact"
+columns = 2
+script = ExtResource("11_2018w")
 
 [node name="Accessibility" type="TabBar" parent="TabContainer"]
 visible = false
@@ -275,14 +204,3 @@ flat = true
 
 [connection signal="pressed" from="Button/Save" to="." method="_on_save_pressed"]
 [connection signal="pressed" from="Button/Back" to="." method="_on_back_pressed"]
-
-[editable path="TabContainer/Input/InputSettingContainer/InputContainer/SkillContainer/BaseDisplayInput"]
-[editable path="TabContainer/Input/InputSettingContainer/InputContainer/SkillContainer/BaseDisplayInput2"]
-[editable path="TabContainer/Input/InputSettingContainer/InputContainer/SkillContainer/BaseDisplayInput3"]
-[editable path="TabContainer/Input/InputSettingContainer/InputContainer/SkillContainer/BaseDisplayInput4"]
-[editable path="TabContainer/Input/InputSettingContainer/InputContainer/SkillContainer/BaseDisplayInput5"]
-[editable path="TabContainer/Input/InputSettingContainer/InputContainer/InteractContainer/BaseDisplayInput"]
-[editable path="TabContainer/Input/InputSettingContainer/InputContainer/InteractContainer/BaseDisplayInput2"]
-[editable path="TabContainer/Input/InputSettingContainer/InputContainer/InteractContainer/BaseDisplayInput3"]
-[editable path="TabContainer/Input/InputSettingContainer/InputContainer/InteractContainer/BaseDisplayInput4"]
-[editable path="TabContainer/Input/InputSettingContainer/InputContainer/InteractContainer/BaseDisplayInput5"]

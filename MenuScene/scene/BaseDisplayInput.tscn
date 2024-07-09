@@ -1,14 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://drj423xbmnbu3"]
+[gd_scene load_steps=3 format=3 uid="uid://drj423xbmnbu3"]
 
 [ext_resource type="FontFile" uid="uid://ym8sq64g20pp" path="res://assets/fonts/gothic-pixel-font.ttf" id="1_frdur"]
+[ext_resource type="Script" path="res://MenuScene/scripts/BaseDisplayInput.gd" id="1_klaaw"]
 
 [node name="BaseDisplayInput" type="Control"]
+custom_minimum_size = Vector2(413, 40)
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_right = 413.0
+offset_bottom = 40.0
+script = ExtResource("1_klaaw")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0

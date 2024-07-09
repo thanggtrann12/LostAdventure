@@ -28,10 +28,14 @@ func _ready() -> void:
 	for setting in settings_list:
 		setting.connect("Change", Callable(self, "_on_change").bind(setting))
 	save.disabled = true
-	var audio = parrent_node.find_child("BackgroundAudio")
-	audio.stop()
-	audio.stream = load("res://Audio/Source/" + SettingsManager.load_back_ground_music())
-	audio.play()
+	if parrent_node:
+		var audio = parrent_node.find_child("BackgroundAudio")
+		audio.stop()
+		if SettingsManager.load_back_ground_music(): #TODO: need more implement about this
+			audio.stream = load("res://Audio/Source/" + SettingsManager.load_back_ground_music())
+		else:
+			audio.stream = load("res://Audio/Source/AdventureBegin.ogg")
+		audio.play()
 
 func _on_change(change, control: Control):
 	is_value_changed = true
