@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://lfv6eahi7yv"]
+[gd_scene load_steps=19 format=3 uid="uid://lfv6eahi7yv"]
 
 [ext_resource type="Script" path="res://MenuScene/scripts/SettingsTab.gd" id="1_0g372"]
 [ext_resource type="FontFile" uid="uid://n5affsmkhue2" path="res://assets/fonts/Gothic Pixels.ttf" id="1_ve2ga"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://drj423xbmnbu3" path="res://MenuScene/scene/BaseDisplayInput.tscn" id="9_xj7k2"]
 [ext_resource type="PackedScene" uid="uid://cgj3aud7q8tld" path="res://MenuScene/scene/MusicList.tscn" id="10_f3glc"]
 [ext_resource type="Script" path="res://MenuScene/scripts/InputContainer.gd" id="11_2018w"]
+[ext_resource type="PackedScene" uid="uid://cecsnlv0ihkc8" path="res://MenuScene/scene/BackgroundMusic.tscn" id="11_o5ggg"]
 
 [sub_resource type="Theme" id="Theme_1ovsq"]
 TabBar/colors/font_hovered_color = Color(0.556003, 0.675221, 0.936778, 1)
@@ -58,9 +59,10 @@ theme_override_styles/tab_focus = SubResource("StyleBoxEmpty_faev5")
 theme_override_styles/tab_selected = SubResource("StyleBoxEmpty_le6km")
 theme_override_styles/tab_unselected = SubResource("StyleBoxEmpty_jf2ig")
 tab_alignment = 1
-current_tab = 0
+current_tab = 1
 
 [node name="Video" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 mouse_default_cursor_shape = 2
 metadata/_tab_index = 0
@@ -93,7 +95,6 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Sound" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 mouse_default_cursor_shape = 2
 metadata/_tab_index = 1
@@ -123,6 +124,9 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="MusicList" parent="TabContainer/Sound/SoundSettingContainer/SoundContainer" instance=ExtResource("10_f3glc")]
+layout_mode = 2
+
+[node name="BackgroundMusic" parent="TabContainer/Sound/SoundSettingContainer/SoundContainer" instance=ExtResource("11_o5ggg")]
 layout_mode = 2
 
 [node name="Input" type="TabBar" parent="TabContainer"]

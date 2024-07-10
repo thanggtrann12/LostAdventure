@@ -77,6 +77,12 @@ func _on_change(change, control: Control):
 			audio.stop()
 			audio.stream = load(control.music_path+control.music_list.keys()[change])
 			audio.play()
+		"BackgroundMusic":
+			var audio = parrent_node.find_child("BackgroundAudio")
+			if change:
+				audio.stop()
+			else:
+				audio.play()
 
 
 func _on_save_pressed() -> void:

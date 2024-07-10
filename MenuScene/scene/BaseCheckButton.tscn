@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1c16vgii5rxk"]
+
+[ext_resource type="FontFile" uid="uid://n5affsmkhue2" path="res://assets/fonts/Gothic Pixels.ttf" id="1_wop1q"]
+
+[node name="BaseCheckButton" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_top = -1.0
+offset_right = -2.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SliderName" type="Label" parent="."]
+offset_left = 60.0
+offset_top = 12.0
+offset_right = 236.0
+offset_bottom = 50.0
+theme_override_fonts/font = ExtResource("1_wop1q")
+theme_override_font_sizes/font_size = 22
+text = "Base Check Box"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="."]
+custom_minimum_size = Vector2(256, 32)
+layout_mode = 0
+offset_left = 272.0
+offset_top = 4.0
+offset_right = 528.0
+offset_bottom = 36.0

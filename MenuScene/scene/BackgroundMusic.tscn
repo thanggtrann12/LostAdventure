@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cecsnlv0ihkc8"]
+
+[ext_resource type="PackedScene" uid="uid://c1c16vgii5rxk" path="res://MenuScene/scene/BaseCheckButton.tscn" id="1_okuq6"]
+[ext_resource type="Script" path="res://MenuScene/scripts/BackgroundMusic.gd" id="2_dvu0l"]
+
+[node name="BackgroundMusic" instance=ExtResource("1_okuq6")]
+script = ExtResource("2_dvu0l")
+
+[node name="SliderName" parent="." index="0"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 11.0
+offset_right = 305.0
+offset_bottom = 49.0
+text = "Background Music"
+
+[connection signal="toggled" from="CheckButton" to="." method="_on_check_button_toggled"]
