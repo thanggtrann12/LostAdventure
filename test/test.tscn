@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://chhe400nkxy57"]
+
+[ext_resource type="PackedScene" uid="uid://c2loonfps5tts" path="res://Character/scenes/Character.tscn" id="1_3nvy5"]
+[ext_resource type="PackedScene" uid="uid://k51iplrq2j5e" path="res://Dummy/CombatDummy.tscn" id="2_pg0bf"]
+[ext_resource type="Texture2D" uid="uid://5lhin7evtuw2" path="res://icon.svg" id="3_u2cih"]
+
+[node name="Test" type="Node2D"]
+
+[node name="Character" parent="." instance=ExtResource("1_3nvy5")]
+position = Vector2(202, 245)
+
+[node name="CombatDummy" parent="." instance=ExtResource("2_pg0bf")]
+position = Vector2(495, 241)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_u2cih")
